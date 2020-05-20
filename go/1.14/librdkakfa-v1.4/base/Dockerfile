@@ -1,4 +1,4 @@
-FROM golang:1.14-alpine3.11
+FROM alpine:3.11 as builder
 
 LABEL MAINTAINER="Yalochat <eng@yalochat.com>"
 LABEL IMAGE="yalochat/go:builder-librdkafka-v1.4"
@@ -10,7 +10,7 @@ RUN apk add build-base \
     && git clone https://github.com/edenhill/librdkafka.git \
     && cd librdkafka \
     && git checkout v1.4.2 \
-    && ./configure \
+    && ./configure --prefix=/librdkafka-v1.4.2\
     && make \
     && make install
 
