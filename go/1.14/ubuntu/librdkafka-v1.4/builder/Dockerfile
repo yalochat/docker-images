@@ -14,5 +14,5 @@ RUN apt-get update -y -q \
     && make install
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y -q curl build-essential ca-certificates git 
-RUN curl -s https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz| tar -v -C /usr/local -xz
+RUN curl -s https://dl.google.com/go/go1.14.9.linux-amd64.tar.gz| tar -v -C /usr/local -xz
 ENV PATH $PATH:/usr/local/go/bin
